@@ -1,22 +1,28 @@
 <div style="display: flex; flex-direction: column; align-items: center;">
-    <div style="display: flex; width: 100%;">
-      <div *ngFor="let time of times" style="flex: 1; text-align: center;">
-        {{ time | date:'shortTime' }}
-      </div>
+  <div style="display: flex; width: 100%;">
+    <div *ngFor="let time of times" style="flex: 1; text-align: center;">
+      {{ time | date:'shortTime' }}
     </div>
-    <div class="swimlines-container">
-      <div style="flex: 1;">
-        <div style="position: relative;">
-          <div [ngStyle]="{ 'position': 'absolute', 'top': '0', 'bottom': '0', 'left': now + '%', 'border-left': '2px solid red' }"></div>
-          <div *ngFor="let event of events" [style.top.px]="event.top" [style.bottom.px]="event.bottom" [style.left.%]="event.start" [style.right.%]="100 - event.end" style="background-color: #eee; border: 1px solid #ccc; border-radius: 3px; padding: 5px; z-index: 1;">
-            {{ event.name }}<br>
-            {{ event.starttime | date:'shortTime' }} - {{ event.endtime | date:'shortTime' }}
-            <div [ngStyle]="{ 'position': 'absolute', 'top': '50%', 'left': '0', 'right': '0', 'height': '2px', 'background-color': event.color }"></div>
-            <div [ngStyle]="{ 'position': 'absolute', 'top.px': event.top, 'bottom.px': event.bottom, 'left.%': event.start, 'right.%': 100 - event.end, 'background-color': event.color, 'border': '1px solid #ccc', 'border-radius': '3px', 'padding': '5px', 'z-index': '2' }">
-            </div>
+  </div>
+  <div class="swimlines-container">
+    <div style="flex: 1;">
+      <div style="position: relative;">
+        <div
+          [ngStyle]="{ 'position': 'absolute', 'top': '0', 'bottom': '0', 'left': now + '%', 'border-left': '2px solid red' }">
+        </div>
+        <div *ngFor="let event of events" [style.top.px]="event.top" [style.bottom.px]="event.bottom"
+          [style.left.%]="event.start" [style.right.%]="100 - event.end"
+          style="background-color: #eee; border: 1px solid #ccc; border-radius: 3px; padding: 5px; z-index: 1;">
+          {{ event.name }}<br>
+          {{ event.starttime | date:'shortTime' }} - {{ event.endtime | date:'shortTime' }}
+          <div
+            [ngStyle]="{ 'position': 'absolute', 'top': '50%', 'left': '0', 'right': '0', 'height': '2px', 'background-color': event.color }">
+          </div>
+          <div
+            [ngStyle]="{ 'position': 'absolute', 'top.px': event.top, 'bottom.px': event.bottom, 'left.%': event.start, 'right.%': 100 - event.end, 'background-color': event.color, 'border': '1px solid #ccc', 'border-radius': '3px', 'padding': '5px', 'z-index': '2' }">
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
