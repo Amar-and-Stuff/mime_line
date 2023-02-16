@@ -10,7 +10,7 @@ export class EventComponent {
   barlength = this.name.length;
 
   getBarConatinerStyle() {
-    const barWidthPercent = this.barlength*10;
+    const barWidthPercent = 200;
     return {
       'bar-container': true,
       'bar-container-width': true,

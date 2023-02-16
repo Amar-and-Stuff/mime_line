@@ -1,7 +1,7 @@
 .bar-container {
     display: inline-block;
-    width: 5000px;
-    height: 30px;
+    width: 1000px;
+    height: 10px;
     border-radius: 20px;
     background-color: #70fab5;
 }

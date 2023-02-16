@@ -1,0 +1,53 @@
+.timeline {
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+    width: 100%;
+  }
+  
+  .years, .months, .dates, .hours {
+    position: relative;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  .years .year, .months .month, .dates .date, .hours .hour {
+    width: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid gray;
+    font-size: 14px;
+  }
+  
+  .years .year {
+    font-size: 18px;
+  }
+  
+  .months .month {
+    width: calc(100% / 12);
+  }
+  
+  .dates .date {
+    width: 10px;
+  }
+  
+  .hours .hour {
+    width: 40px;
+  }
+  
+  .now {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background-color: red;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  

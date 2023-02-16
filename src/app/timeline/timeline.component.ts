@@ -1,26 +1,87 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, ElementRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-timeline',
   templateUrl: './timeline.component.html',
   styleUrls: ['./timeline.component.css']
 })
-export class TimelineComponent {
-  times = this.generateTimes(new Date(), 24);
-  
-  now: number = (new Date().getHours() * 60 + new Date().getMinutes()) / 1440 * 100;
-  events = [
-    { name: 'Event 1', starttime: new Date('2023-01-20T09:30:00'), endtime: new Date('2023-01-20T11:00:00'), start: 25, end: 50, top: 20, bottom: 80, color: '#ccc' },
-    { name: 'Event 2', starttime: new Date('2023-01-20T12:00:00'), endtime: new Date('2023-01-20T14:00:00'), start: 60, end: 80, top: 50, bottom: 120, color: '#ccc' },
-    { name: 'Event 3', starttime: new Date('2023-01-20T16:30:00'), endtime: new Date('2023-01-20T18:00:00'), start: 10, end: 30, top: 90, bottom: 150, color: '#ccc' },
-  ];
-  
-  
-  generateTimes(date: Date, count: number) {
-    const times = [];
-    for (let i = 0; i < count; i++) {
-      times.push(new Date(date.getFullYear(), date.getMonth(), date.getDate(), i));
+export class TimelineComponent implements OnInit {
+
+  private lastScale: number = 1;
+
+  years: number[] = [];
+  months: number[] = [];
+  dates: number[] = [];
+  hours: number[] = [];
+
+  constructor(private elRef: ElementRef) { }
+
+  ngOnInit() {
+    // populate years with dummy data
+    for (let i = 2023; i >= 1900; i--) {
+      this.years.push(i);
     }
-    return times;
+
+    // populate months with dummy data
+    for (let i = 12; i >= 1; i--) {
+      this.months.push(i);
+    }
+
+    // populate dates with dummy data
+    for (let i = 31; i >= 1; i--) {
+      this.dates.push(i);
+    }
+
+    // populate hours with dummy data
+    for (let i = 23; i >= 0; i--) {
+      this.hours.push(i);
+    }
   }
+
+  @HostListener('touchstart', ['$event'])
+  onTouchStart(event: TouchEvent) {
+    this.lastScale = 1;
+  }
+
+  @HostListener('touchmove', ['$event'])
+  onTouchMove(event: TouchEvent) {
+    if (event.touches.length > 1) {
+      const distance = Math.hypot(
+        event.touches[0].pageX - event.touches[1].pageX,
+        event.touches[0].pageY - event.touches[1].pageY
+      );
+      const scale = distance / (50 * 2);
+      this.elRef.nativeElement.scrollLeft *= scale / this.lastScale;
+      this.lastScale = scale;
+    }
+  }
+
+  @HostListener('scroll', ['$event'])
+  onScroll(event: Event) {
+    const yearsEl = this.elRef.nativeElement.querySelector('.years');
+    const monthsEl = this.elRef.nativeElement.querySelector('.months');
+    const datesEl = this.elRef.nativeElement.querySelector('.dates');
+    const hoursEl = this.elRef.nativeElement.querySelector('.hours');
+    const nowEl = this.elRef.nativeElement.querySelector('.now');
+
+    const hoursWidth = hoursEl.offsetWidth;
+    const hoursLeft = hoursEl.getBoundingClientRect().left;
+
+    // set position of years and months bars
+    const yearsMonthsOffset = yearsEl.offsetWidth - monthsEl.offsetWidth;
+    const yearsMonthsLeft = yearsEl.getBoundingClientRect().left - yearsMonthsOffset * this.elRef.nativeElement.scrollLeft / this.elRef.nativeElement.scrollWidth;
+    yearsEl.style.left = yearsMonthsLeft + 'px';
+    monthsEl.style.left = yearsMonthsLeft + yearsMonthsOffset + 'px';
+
+    // set position of dates and hours bars
+    const datesHoursOffset = datesEl.offsetWidth - hoursWidth;
+    const datesHoursLeft = datesEl.getBoundingClientRect().left - datesHoursOffset * this.elRef.nativeElement.scrollLeft / this.elRef.nativeElement.scrollWidth;
+    datesEl.style.left = datesHoursLeft + 'px';
+    hoursEl.style.left = datesHoursLeft + datesHoursOffset + 'px';
+
+    // set position of "now" pointer
+    const nowOffset = hoursLeft - this.elRef.nativeElement.scrollLeft;
+    nowEl.style.left = nowOffset + 'px';
+  }
+
 }
