@@ -5,10 +5,8 @@
     border-radius: 20px;
     background-color: #70fab5;
 }
-
 .bar-name {
     display: inline-block;
-    text-align: center;
     line-height: 30px;
     color: #333;
     font-size: 18px;

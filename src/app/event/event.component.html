@@ -1,6 +1,4 @@
-<div class="bar-container">
-<div class="bar-container" [ngClass]="getBarConatinerStyle()"></div>
-<span class="bar-name">{{name}}</span>
+<div [ngStyle]="{'width':container_width, 'border':'2px solid black'}">
+<div [ngStyle]="{'width': bar_width, 'height': '10px', 'border-radius': '20px', 'background-color': '#70fab5','margin-left':'auto','margin-right':'auto'}"></div>
+<span class="bar-name" style="text-align: center;">{{name}}</span>
 </div>
-
-  
