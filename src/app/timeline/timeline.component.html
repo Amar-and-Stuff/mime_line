@@ -1,16 +1,10 @@
-<div class="timeline" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)" (scroll)="onScroll($event)">
-    <div class="years">
-      <div *ngFor="let year of years" class="year">{{year}}</div>
-    </div>
-    <div class="months">
-      <div *ngFor="let month of months" class="month">{{month}}</div>
-    </div>
-    <div class="dates">
-      <div *ngFor="let date of dates" class="date">{{date}}</div>
-    </div>
-    <div class="hours">
-      <div *ngFor="let hour of hours" class="hour">{{hour}}</div>
-      <div class="now"></div>
-    </div>
-  </div>
-  
+<div>
+<button *ngFor="let month of months" class="month-button button" (click)="onClick()">{{month}} {{year}}</button>
+</div>
+<div *ngIf="showContent">
+    <h1>HI show content is True</h1>
+    <button (click)="onClick()">CRAZY!!!</button>
+</div>
+<div *ngIf="!showContent">
+    <h1>HI show content is false</h1>
+</div>

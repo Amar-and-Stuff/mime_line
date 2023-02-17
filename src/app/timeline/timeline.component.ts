@@ -8,25 +8,29 @@ import { Component, HostListener, ElementRef, OnInit } from '@angular/core';
 export class TimelineComponent implements OnInit {
 
   private lastScale: number = 1;
-
-  years: number[] = [];
-  months: number[] = [];
+  showContent: Boolean = false;
+  res: String = "../../assets/saitama.jpg";
+  year: number = 2023;
+  months: String[] = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
+  ];
   dates: number[] = [];
   hours: number[] = [];
 
   constructor(private elRef: ElementRef) { }
 
   ngOnInit() {
-    // populate years with dummy data
-    for (let i = 2023; i >= 1900; i--) {
-      this.years.push(i);
-    }
-
-    // populate months with dummy data
-    for (let i = 12; i >= 1; i--) {
-      this.months.push(i);
-    }
-
     // populate dates with dummy data
     for (let i = 31; i >= 1; i--) {
       this.dates.push(i);
@@ -82,6 +86,15 @@ export class TimelineComponent implements OnInit {
     // set position of "now" pointer
     const nowOffset = hoursLeft - this.elRef.nativeElement.scrollLeft;
     nowEl.style.left = nowOffset + 'px';
+  }
+
+  onClick() {
+    console.log("button clicked");
+    if(this.showContent) {
+      this.showContent = false;
+    } else {
+      this.showContent = true;
+    }
   }
 
 }
