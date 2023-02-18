@@ -1,0 +1,52 @@
+<table>
+    <tr>
+        <th rowspan="2">categories\time</th>
+        <th [attr.colspan]="numberOfDays"><div class="button_text">{{currentMonth}} {{year}}</div></th>
+    </tr>
+    <tr>
+        <th *ngFor="let date of counter(numberOfDays);let i = index"><div class="button_text">{{date}}</div></th>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                category name
+            </div>
+        </td>
+        <td [attr.colspan]="numberOfDays">ok</td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                category name
+            </div>
+        </td>
+        <td [attr.colspan]="numberOfDays">ok</td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                category name
+            </div>
+        </td>
+        <td [attr.colspan]="numberOfDays">ok</td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                category name
+            </div>
+        </td>
+        <td [attr.colspan]="numberOfDays">ok</td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                category name
+            </div>
+        </td>
+        <td [attr.colspan]="numberOfDays">
+            <div>ok</div>
+            <div>what are you going to do?</div>
+        </td>
+    </tr>
+</table>

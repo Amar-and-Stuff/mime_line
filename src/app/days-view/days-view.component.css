@@ -1,0 +1,28 @@
+button {
+    margin: auto;
+    padding: 5px;
+    margin: auto;
+    width: 100px;
+    height: 100%;
+}
+
+.button_text {
+    margin: auto;
+    width: 100px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+table {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-collapse: collapse;
+    width: 100%;
+    border: #a53939;
+}
+
+td, tr, th {
+    border: 1px solid #a53939;
+    text-align: center;
+    width: 100px;
+}

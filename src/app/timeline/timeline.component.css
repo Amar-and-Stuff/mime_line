@@ -1,11 +1,3 @@
-.button {
-    margin: 1px;
-    padding: 5px;
-}
-
-.month-button {
-    margin: 5px;
-    padding: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
+input {
+    padding: 10px;
 }

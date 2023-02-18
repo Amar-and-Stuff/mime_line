@@ -1,10 +1,2 @@
-<div>
-<button *ngFor="let month of months" class="month-button button" (click)="onClick()">{{month}} {{year}}</button>
-</div>
-<div *ngIf="showContent">
-    <h1>HI show content is True</h1>
-    <button (click)="onClick()">CRAZY!!!</button>
-</div>
-<div *ngIf="!showContent">
-    <h1>HI show content is false</h1>
-</div>
+<input type="date" (input)="onDateSelected($event)">
+<app-days-view [_currentMonth]="selectedMonth" [_year]="selectedYear" [_numberOfDays]="numberOfDays"></app-days-view>
