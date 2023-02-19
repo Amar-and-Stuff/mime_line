@@ -1,10 +1,11 @@
 /* Style for the select elements */
 select {
     padding: 10px;
-    font-size: 16px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
     border: none;
     border-radius: 5px;
-    background-color: #f4f4f4;
+    
     margin: 10px;
     box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
   }
@@ -49,6 +50,5 @@ select {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f2f2f2;
-  }
+ }
   
