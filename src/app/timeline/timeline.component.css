@@ -1,0 +1,54 @@
+/* Style for the select elements */
+select {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    margin: 10px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  /* Style for the option elements */
+  option {
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  /* Style for the dropdown arrow */
+  select::-ms-expand {
+    display: none;
+  }
+  
+  select::after {
+    content: "\25BC";
+    position: absolute;
+    top: 25%;
+    right: 10px;
+    color: #000;
+  }
+  
+  /* Style for the dropdown container */
+  .select-container {
+    position: relative;
+  }
+  
+  /* Style for the month dropdown */
+  .month-dropdown {
+    width: 200px;
+  }
+  
+  /* Style for the year dropdown */
+  .year-dropdown {
+    width: 150px;
+  }
+  
+  /* Style for the container */
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+  }
+  

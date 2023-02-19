@@ -8,9 +8,11 @@ import { Component, NgModule } from '@angular/core';
 
 export class TimelineComponent {
   dateInput?:String;
-  selectedMonth: String= "Jan";
-  selectedYear = 2023;
-  numberOfDays: number = 31;
+  currentMonth: String = "Feb";
+  currentYear: number = 2023;
+  selectedMonth: String= this.currentMonth;
+  selectedYear = this.currentYear;
+  numberOfDays: number = 28;
 
 
   months: String[] = [
@@ -30,15 +32,18 @@ export class TimelineComponent {
 
   monthDays: number[] = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-  onDateSelected(event: Event) {
+  onMonthSelected(event: Event) {
     const inputElement = event.target as HTMLInputElement;
-    this.dateInput = inputElement.value;
-    let splitDate = this.dateInput.split('-');
-    this.selectedYear = Number(splitDate[0]);
-    let monthIndex = Number(splitDate[1]) - 1;
-    if(monthIndex == 1 && this.isLeapYear(this.selectedYear)) this.numberOfDays = 29;
-    else this.numberOfDays = this.monthDays[monthIndex];
-    this.selectedMonth = this.months[monthIndex];
+    this.selectedMonth = inputElement.value;
+    if(this.selectedMonth == 'Feb' && this.isLeapYear(this.selectedYear)) this.numberOfDays = 29;
+    else this.numberOfDays = this.monthDays[this.months.indexOf(this.selectedMonth)];
+  }
+
+  onYearSelected(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    this.selectedYear = Number(inputElement.value);
+    if(this.selectedMonth == 'Feb' && this.isLeapYear(this.selectedYear)) this.numberOfDays = 29;
+    else this.numberOfDays = this.monthDays[this.months.indexOf(this.selectedMonth)];
   }
 
   isLeapYear(year: number): boolean {
@@ -51,5 +56,13 @@ export class TimelineComponent {
     } else {
       return true;
     }
+  }
+
+  lastTenYears(year: number) {
+    let tenYears: number[] = new Array();
+    for(let i = 0;i <= 10; i++) {
+      tenYears.push(year - i);
+    }
+    return tenYears;
   }
 }

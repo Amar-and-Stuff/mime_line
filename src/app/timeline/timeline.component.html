@@ -1,2 +1,13 @@
-<input type="date" (input)="onDateSelected($event)">
+<div class="form-group">
+    <label for="month">Month:</label>
+    <select id="month" name="month" (change)="onMonthSelected($event)">
+        <option value="" selected disabled>Select Month</option>
+        <option *ngFor="let mon of months" value="{{mon}}">{{mon}}</option>
+    </select>
+    <label for="year">Year:</label>
+    <select id="year" name="year" (change)="onYearSelected($event)">
+        <option value="" selected disabled>Select Year</option>
+        <option *ngFor="let y of lastTenYears(currentYear)" value="{{y}}">{{y}}</option>
+    </select>
+</div>
 <app-days-view [_currentMonth]="selectedMonth" [_year]="selectedYear" [_numberOfDays]="numberOfDays"></app-days-view>
