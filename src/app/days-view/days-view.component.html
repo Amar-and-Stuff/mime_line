@@ -1,52 +1,38 @@
 <table>
-    <tr>
-        <th rowspan="2">categories\time</th>
-        <th [attr.colspan]="numberOfDays"><div class="button_text">{{currentMonth}} {{year}}</div></th>
-    </tr>
-    <tr>
-        <th *ngFor="let date of counter(numberOfDays);let i = index"><div class="button_text">{{date}}</div></th>
-    </tr>
-    <tr>
-        <td>
-            <div class="categoryName">
-                category name
-            </div>
+    <caption>Monthly Schedule</caption>
+    <thead>
+      <tr>
+        <th rowspan="2">Category</th>
+        <th [attr.colspan]='numberOfDays'>{{currentMonth}} {{year}}</th>
+      </tr>
+      <tr>
+        <th *ngFor="let date of counter(numberOfDays);let i = index">{{date}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="category-row">
+        <td class="category-name">Category Name 1</td>
+        <td [attr.colspan]='numberOfDays'>OK</td>
+      </tr>
+      <tr class="category-row">
+        <td class="category-name">Category Name 2</td>
+        <td [attr.colspan]='numberOfDays'>OK</td>
+      </tr>
+      <tr class="category-row">
+        <td class="category-name">Category Name 3</td>
+        <td [attr.colspan]='numberOfDays'>OK</td>
+      </tr>
+      <tr class="category-row">
+        <td class="category-name">Category Name 4</td>
+        <td [attr.colspan]='numberOfDays'>OK</td>
+      </tr>
+      <tr class="category-row">
+        <td class="category-name">Category Name 5</td>
+        <td [attr.colspan]='numberOfDays'>
+          <div>OK</div>
+          <div>What are you going to do?</div>
         </td>
-        <td [attr.colspan]="numberOfDays">ok</td>
-    </tr>
-    <tr>
-        <td>
-            <div class="categoryName">
-                category namek hlkuaaauuuuu uuuu uuuuuuaygdglag
-            </div>
-        </td>
-        <td [attr.colspan]="numberOfDays">ok</td>
-    </tr>
-    <tr>
-        <td>
-            <div class="categoryName">
-                category name
-            </div>
-        </td>
-        <td [attr.colspan]="numberOfDays">ok</td>
-    </tr>
-    <tr>
-        <td>
-            <div class="categoryName">
-                category name
-            </div>
-        </td>
-        <td [attr.colspan]="numberOfDays">ok</td>
-    </tr>
-    <tr>
-        <td>
-            <div class="categoryName">
-                category name
-            </div>
-        </td>
-        <td [attr.colspan]="numberOfDays">
-            <div>ok</div>
-            <div>what are you going to do?</div>
-        </td>
-    </tr>
-</table>
+      </tr>
+    </tbody>
+  </table>
+  

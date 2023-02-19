@@ -1,22 +1,32 @@
-.button_text {
-    margin: auto;
-    width: 50px;
-}
-
-table {
-    border-collapse: collapse;
-    border: #492c2c;
-    margin: auto;
+* {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+  
+  td, th {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  tr {
+    padding: 5px;
     margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.categoryName {
-    background-color: aqua;
-    max-width: 250px;
-}
-
-td, tr, th {
-    border: 1px solid #462222;
+  }
+  
+  th {
+    width: 50px;
     text-align: center;
-}
+    background-color: #f2f2f2;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .categoryName {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  tr + tr {
+    margin-top: 10px;
+  }
+  
