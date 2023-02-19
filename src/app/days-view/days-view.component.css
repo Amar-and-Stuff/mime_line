@@ -4,29 +4,36 @@
   }
   
   td, th {
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border: 1px solid #ccc;
   }
   
   tr {
-    padding: 5px;
     margin-top: 10px;
   }
   
   th {
-    width: 50px;
     text-align: center;
     background-color: #f2f2f2;
-    padding: 10px;
     border: 1px solid #ccc;
   }
   
-  .categoryName {
+  .category-name {
     font-size: 16px;
     font-weight: bold;
+    width:auto;
+    margin: auto;
   }
   
-  tr + tr {
+  tr + td {
     margin-top: 10px;
   }
   
+  .date-text {
+    width: 50px;
+  }
+
+  table {
+    margin: auto;
+  }
