@@ -1,4 +1,4 @@
-<div [ngStyle]="{'margin-left': marginLeft,'width':width,'display':'inline-block'}"> 
+<div title="{{line}}" [ngStyle]="{'margin-left': marginLeft,'width':width,'display':'inline-block'}"> 
     <div *ngIf="isDot" [ngStyle]="{'background-color':bgcolor}" class="dot-prop"></div>
     <div *ngIf="!isDot" [ngStyle]="{'background-color':bgcolor}" class="bar-prop"></div>
     <div class="bar-name">{{name}}</div>

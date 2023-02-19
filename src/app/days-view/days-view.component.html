@@ -9,27 +9,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="category-row">
-        <td class="category-name">Category Name 1</td>
-        <td [attr.colspan]='numberOfDays'><app-event-container></app-event-container></td>
-      </tr>
-      <tr class="category-row">
-        <td class="category-name">Category Name 2lhkskbfkavsjhdfjh kjbd uasdaisf iugsiuoai iuahofuha</td>
-        <td [attr.colspan]='numberOfDays'><app-event-container></app-event-container></td>
-      </tr>
-      <tr class="category-row">
-        <td class="category-name">Category Name 3</td>
-        <td [attr.colspan]='numberOfDays'><app-event-container></app-event-container></td>
-      </tr>
-      <tr class="category-row">
-        <td class="category-name">Category Name 4</td>
-        <td [attr.colspan]='numberOfDays'><app-event-container></app-event-container></td>
-      </tr>
-      <tr class="category-row">
-        <td class="category-name">Category Name 5</td>
-        <td [attr.colspan]='numberOfDays'>
-          <div><app-event-container></app-event-container></div>
-        </td>
+      <tr class="category-row" *ngFor="let category of categories;let i = index">
+        <td class="category-name">{{category}}</td>
+        <td [attr.colspan]='numberOfDays'><app-event-container [_eventsDetails]="categories_[i]"></app-event-container></td>
       </tr>
     </tbody>
   </table>

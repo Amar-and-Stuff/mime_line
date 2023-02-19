@@ -1,4 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
+
+interface UserEvent {
+  name: String;
+  start: String;
+  end: string;
+  line: String;
+}
 
 @Component({
   selector: 'app-event-container',
@@ -6,46 +13,52 @@ import { Component } from '@angular/core';
   styleUrls: ['./event-container.component.css']
 })
 export class EventContainerComponent {
-  events: number[][] = [
-    [1, 10],
-    [12, 18],
-    [16, 23],
-    [4, 9],
-    [7, 12],
-    [13, 15],
-    [23,23],
-    [24, 28],
-    [22, 25],
-    [5, 8],
-  ];
 
+  @Input() _eventsDetails?:UserEvent[];
+  eventDays: any[][] = new Array();
+  eventNames: String[] = new Array();
   colors: String[] = [
       '#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF',
       '#00FFFF', '#800000', '#008000', '#000080', '#FFA500',
       '#FFC0CB', '#FF69B4', '#8B008B', '#9370DB', '#00FF7F',
       '#1E90FF', '#ADFF2F', '#00BFFF', '#9400D3', '#F0E68C',
       '#FF6347', '#7FFFD4', '#2F4F4F', '#D2B48C', '#808080'
-    ]
-
-
+  ];
+  eventsDetails:UserEvent[] = [{"name":"eventName","start":"01-02-2023","end":"05-02-2023","line":"A line about event"}];
   orderedNumberEvent: number[][] = new Array();
-  orderedEvents: String[][][] = new Array();
+  orderedEvents: any[][][] = new Array();
+  eventLines: String[] = new Array();
 
-  constructor() {
+  /*constructor() {
+    this.adjustEventEnds();
+    this.getOrderedEvents();
+    this.buildEventsDaysArray();
+  }*/
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes['_eventsDetails']) this.eventsDetails = changes['_eventsDetails'].currentValue || changes['_eventsDetails'].previousValue;
+    this.buildEventsDaysArray();
     this.adjustEventEnds();
     this.getOrderedEvents();
   }
 
-  adjustEventEnds() {
-    for(let i = 0; i < this.events.length; i++) {
-      this.events[i][1] += 1;
+  buildEventsDaysArray() {
+    for(let i= 0;i < this.eventsDetails.length; i++) {
+      this.eventDays.push([Number(this.eventsDetails[i].start.split("-")[0]),Number(this.eventsDetails[i].end.split("-")[0]),this.eventsDetails[i].name, this.eventsDetails[i].line]);
+      this.eventNames.push(this.eventsDetails[i].name);
+      this.eventLines.push(this.eventsDetails[i].line)
     }
-    console.log(this.events)
+  }
+
+  adjustEventEnds() {
+    for(let i = 0; i < this.eventDays.length; i++) {
+      this.eventDays[i][1] += 1;
+    }
   }
 
   getOrderedEvents() {
     this.getOrderedNumberEvents();
-    let firstLine: String[][] = new Array();
+    let firstLine: any[][] = new Array();
     let c = 1;
     for(let i = 0;i < this.orderedNumberEvent.length; i++) {
       let k = 0;
@@ -54,7 +67,7 @@ export class EventContainerComponent {
         c = this.orderedNumberEvent[i][1];
         let fval = String((k) * 56)+"px";
         let sval = String(((this.orderedNumberEvent[i][1] - this.orderedNumberEvent[i][0])) * 56)+"px";
-        firstLine.push([fval, sval]);
+        firstLine.push([fval, sval,this.orderedNumberEvent[i][2],this.orderedNumberEvent[i][3]]);
       } else {
         c = 1;
         this.orderedEvents.push(firstLine);
@@ -66,16 +79,18 @@ export class EventContainerComponent {
       this.orderedEvents.push(firstLine);
       firstLine = new Array();
     }
+    console.log(this.orderedEvents);
+
   }
 
   getOrderedNumberEvents() {
-    let tap: number[] = new Array(this.events.length);
+    let tap: number[] = new Array(this.eventDays.length);
     let stop = false;
     let base = 0;
     while(!stop) {
       let recentMaxIndex = -1;
       for(let k = 0; k < tap.length; k++) {
-        if(tap[k] != 1 && this.events[k][0] > base) {
+        if(tap[k] != 1 && this.eventDays[k][0] > base) {
             recentMaxIndex = k;
             break;
         } 
@@ -86,19 +101,19 @@ export class EventContainerComponent {
         continue;
       }
       let maxIndex = recentMaxIndex;
-      for(let i = 0; i < this.events.length; i++) {
+      for(let i = 0; i < this. eventDays.length; i++) {
         if(tap[i] != 1) {
-          if(this.events[maxIndex][0] > this.events[i][0] && this.events[i][0] >= base) {
+          if(this. eventDays[maxIndex][0] > this. eventDays[i][0] && this. eventDays[i][0] >= base) {
             recentMaxIndex = maxIndex;
             maxIndex = i;
-          } else if(this.events[maxIndex][0] == this.events[i][0] && this.events[i][0] >= base && this.events[maxIndex][1] > this.events[i][1]) {
+          } else if(this. eventDays[maxIndex][0] == this. eventDays[i][0] && this. eventDays[i][0] >= base && this. eventDays[maxIndex][1] > this. eventDays[i][1]) {
             recentMaxIndex = maxIndex;
             maxIndex = i;
           }
         }
       }
-      this.orderedNumberEvent.push(this.events[maxIndex]);
-      base = this.events[maxIndex][1]
+      this.orderedNumberEvent.push(this. eventDays[maxIndex]);
+      base = this. eventDays[maxIndex][1]
       tap[maxIndex] = 1;
     }
   }
