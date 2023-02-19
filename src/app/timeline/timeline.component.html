@@ -1,13 +1,17 @@
-<div class="form-group">
-    <label for="month">Month:</label>
+
+<div style="display: flex; justify-content: flex-end;background-color: rgb(225,225,225,0.5);">
+<h3 style="margin-left : 50%;font-size: 25px;color: white">Mime-Line</h3>
+<div class="form-group" style="margin-left: auto;">
+    <label for="month" style="color:white">Month:</label>
     <select id="month" name="month" (change)="onMonthSelected($event)">
         <option value="" selected disabled>Select Month</option>
         <option *ngFor="let mon of months" value="{{mon}}">{{mon}}</option>
     </select>
-    <label for="year">Year:</label>
+    <label for="year" style="color:white">Year:</label>
     <select id="year" name="year" (change)="onYearSelected($event)">
         <option value="" selected disabled>Select Year</option>
         <option *ngFor="let y of lastTenYears(currentYear)" value="{{y}}">{{y}}</option>
     </select>
+</div>
 </div>
 <app-days-view [_currentMonth]="selectedMonth" [_year]="selectedYear" [_numberOfDays]="numberOfDays"></app-days-view>

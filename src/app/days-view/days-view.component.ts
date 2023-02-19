@@ -27,4 +27,5 @@ export class DaysViewComponent implements OnChanges{
     }
     return arr;
   }
+
 }
