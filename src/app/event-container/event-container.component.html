@@ -1,0 +1,3 @@
+<div *ngFor="let orderedEvent of orderedEvents">
+<app-event *ngFor="let event of orderedEvent" [_width]="event[1]" [_marginLeft]="event[0]"></app-event>
+</div>

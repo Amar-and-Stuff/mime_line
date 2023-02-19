@@ -1,4 +1,5 @@
-<div [ngStyle]="{'width':containerWidth, 'border':'2px solid black'}">
-<div [ngStyle]="{'width': barWidth, 'height': '10px', 'border-radius': '20px', 'background-color': '#70fab5','margin-left':'auto','margin-right':'auto'}"></div>
-<span class="bar-name" style="text-align: center;">{{name}}</span>
+<div [ngStyle]="{'margin-left': marginLeft,'width':width,'display':'inline-block'}"> 
+    <div [ngStyle]="{}" class="bar-prop"></div>
+    <div class="bar-name">{{name}}</div>
 </div>
+  
