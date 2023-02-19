@@ -13,10 +13,20 @@ export class EventContainerComponent {
     [4, 9],
     [7, 12],
     [13, 15],
+    [23,23],
     [24, 28],
     [22, 25],
     [5, 8],
   ];
+
+  colors: String[] = [
+      '#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF',
+      '#00FFFF', '#800000', '#008000', '#000080', '#FFA500',
+      '#FFC0CB', '#FF69B4', '#8B008B', '#9370DB', '#00FF7F',
+      '#1E90FF', '#ADFF2F', '#00BFFF', '#9400D3', '#F0E68C',
+      '#FF6347', '#7FFFD4', '#2F4F4F', '#D2B48C', '#808080'
+    ]
+
 
   orderedNumberEvent: number[][] = new Array();
   orderedEvents: String[][][] = new Array();
@@ -42,8 +52,8 @@ export class EventContainerComponent {
       if(c <= this.orderedNumberEvent[i][0]) {
         k = this.orderedNumberEvent[i][0] - c;
         c = this.orderedNumberEvent[i][1];
-        let fval = String((k) * 55)+"px";
-        let sval = String(((this.orderedNumberEvent[i][1] - this.orderedNumberEvent[i][0])) * 55)+"px";
+        let fval = String((k) * 56)+"px";
+        let sval = String(((this.orderedNumberEvent[i][1] - this.orderedNumberEvent[i][0])) * 56)+"px";
         firstLine.push([fval, sval]);
       } else {
         c = 1;
@@ -91,6 +101,10 @@ export class EventContainerComponent {
       base = this.events[maxIndex][1]
       tap[maxIndex] = 1;
     }
+  }
+
+  getRandomInt(): number {
+    return Math.floor(Math.random() * this.colors.length);
   }
 
 }

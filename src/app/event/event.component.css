@@ -3,13 +3,21 @@
     color: #333;
     font-size: 18px;
     width: 100%;
-    text-align: left;
+    text-align: center;
+    overflow: scroll;
 }
 .bar-prop{
     display: flex;
     height: 10px;
     border-radius:20px;
-    background-color: purple;
+}
+
+.dot-prop{
+    margin: auto;
+    width: 10px;
+    display: flex;
+    height: 10px;
+    border-radius:20px;
 }
   
   
