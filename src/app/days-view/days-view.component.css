@@ -1,28 +1,22 @@
-button {
-    margin: auto;
-    padding: 5px;
-    margin: auto;
-    width: 100px;
-    height: 100%;
-}
-
 .button_text {
     margin: auto;
-    width: 100px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    width: 50px;
 }
 
 table {
+    border-collapse: collapse;
+    border: #492c2c;
+    margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
-    border-collapse: collapse;
-    width: 100%;
-    border: #a53939;
+}
+
+.categoryName {
+    background-color: aqua;
+    max-width: 250px;
 }
 
 td, tr, th {
-    border: 1px solid #a53939;
+    border: 1px solid #462222;
     text-align: center;
-    width: 100px;
 }
