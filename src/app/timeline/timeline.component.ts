@@ -37,6 +37,7 @@ export class TimelineComponent {
     this.selectedMonth = inputElement.value;
     if(this.selectedMonth == 'Feb' && this.isLeapYear(this.selectedYear)) this.numberOfDays = 29;
     else this.numberOfDays = this.monthDays[this.months.indexOf(this.selectedMonth)];
+    console.log(this.numberOfDays);
   }
 
   onYearSelected(event: Event) {
@@ -44,6 +45,8 @@ export class TimelineComponent {
     this.selectedYear = Number(inputElement.value);
     if(this.selectedMonth == 'Feb' && this.isLeapYear(this.selectedYear)) this.numberOfDays = 29;
     else this.numberOfDays = this.monthDays[this.months.indexOf(this.selectedMonth)];
+    console.log(this.numberOfDays);
+
   }
 
   isLeapYear(year: number): boolean {

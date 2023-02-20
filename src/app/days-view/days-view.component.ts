@@ -9,13 +9,13 @@ const EVENT_DATA = {
         "line": "Kreative 2k23 Hackathon"
     },
     {
-        "name": "Close the care gap",
+        "name": "Close_the_care_gap",
         "start": "04-02-2023",
         "end": "04-02-2023",
-        "line": "Close the care gapKreative 2k23"
+        "line": "Close the care gap"
     },
     {
-        "name": "IEEE Paper Presentation",
+        "name": "IEEE_Paper_Presentation",
         "start": "08-02-2023",
         "end": "08-02-2023",
         "line": "IEEE Paper Presentation"

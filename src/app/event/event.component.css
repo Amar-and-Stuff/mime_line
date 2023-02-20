@@ -6,7 +6,8 @@
     font-weight: bold;
     width: 100%;
     text-align: center;
-    overflow: hidden;
+    overflow:hidden;
+    flex-wrap: wrap-reverse;
 }
 .bar-prop{
     display: flex;
@@ -21,7 +22,10 @@
     height: 10px;
     border-radius:20px;
 }
-  
+
+.prop {
+    border: 1px solid red;
+}
   
   
   

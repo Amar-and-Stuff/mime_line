@@ -7,6 +7,7 @@ interface UserEvent {
   line: String;
 }
 
+
 @Component({
   selector: 'app-event-container',
   templateUrl: './event-container.component.html',
@@ -24,6 +25,41 @@ export class EventContainerComponent {
       '#1E90FF', '#ADFF2F', '#00BFFF', '#9400D3', '#F0E68C',
       '#FF6347', '#7FFFD4', '#2F4F4F', '#D2B48C', '#808080'
   ];
+  shades_of_yellow_green = [
+    "#9ACD32",   // Yellow Green
+    "#7FFF00",   // Chartreuse
+    "#ADFF2F",   // Green Yellow
+    "#556B2F",   // Dark Olive Green
+    "#9ACD32",   // Yellow Green
+    "#EEE8AA",   // Pale Goldenrod
+    "#DAA520",   // Goldenrod
+    "#BDB76B",   // Dark Khaki
+    "#808000",   // Olive
+    "#556B2F",   // Dark Olive Green
+    "#6B8E23",   // Olive Drab
+    "#C0C000",   // Olive Green
+    "#9ACD32",   // Yellow Green
+    "#8FBC8F",   // Dark Sea Green
+    "#32CD32",   // Lime Green
+    "#00FF7F",   // Spring Green
+    "#00FA9A",   // Medium Spring Green
+    "#7CFC00",   // Lawn Green
+    "#98FB98",   // Pale Green
+    "#90EE90",   // Light Green
+    "#00FF00",   // Green
+    "#32CD32",   // Lime Green
+    "#ADFF2F",   // Green Yellow
+    "#9ACD32",   // Yellow Green
+    "#7FFF00",   // Chartreuse
+  ];
+  smooth_red_colors = [
+    "#FFC3B3",   // Apricot
+    "#FFA07A",   // Light Salmon
+    "#FF7F50",   // Coral
+    "#FF6347",   // Tomato
+    "#E9967A",   // Dark Salmon
+  ];
+  
   eventsDetails:UserEvent[] = [{"name":"eventName","start":"01-02-2023","end":"05-02-2023","line":"A line about event"}];
   orderedNumberEvent: number[][] = new Array();
   orderedEvents: any[][][] = new Array();
@@ -119,7 +155,7 @@ export class EventContainerComponent {
   }
 
   getRandomInt(): number {
-    return Math.floor(Math.random() * this.colors.length);
+    return Math.floor(Math.random() * this.smooth_red_colors.length);
   }
 
 }

@@ -3,7 +3,15 @@
     font-size: 14px;
   }
   
-  td, th {
+  td{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #ccc;
+    background-color: rgb(212, 252, 255,0.50);
+    border-radius: 5px;
+  }
+
+  th {
     padding-top: 10px;
     padding-bottom: 10px;
     border: 1px solid #ccc;
@@ -12,12 +20,13 @@
   
   tr {
     margin-top: 10px;
-    background-color: rgb(255, 255, 255, 0.25);
+    background-color: rgb(255, 255, 255, 0.40);
+    border-radius: 10px;
   }
   
   th {
     text-align: center;
-    background-color: rgb(225, 225, 225,0.5);
+    background-color: rgb(255, 238, 222,0.4);
     border: 1px solid #ccc;
   }
   
@@ -26,12 +35,15 @@
     font-weight: bold;
     width:auto;
     margin: auto;
-    background-color: rgb(225, 225, 225,0.5);
+    background-color: rgb(255, 238, 222,0.4);
+    text-align: center;
   }
   
   tr + td {
     margin-top: 10px;
   }
+
+
   
   .date-text {
     width: 50px;

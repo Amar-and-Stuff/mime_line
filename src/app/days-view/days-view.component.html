@@ -11,7 +11,7 @@
     <tbody>
       <tr class="category-row" *ngFor="let category of categories;let i = index">
         <td class="category-name">{{category}}</td>
-        <td [attr.colspan]='numberOfDays'><app-event-container [_eventsDetails]="categories_[i]"></app-event-container></td>
+        <td [attr.colspan]='numberOfDays+3'><app-event-container [_eventsDetails]="categories_[i]"></app-event-container></td>
       </tr>
     </tbody>
   </table>
