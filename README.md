@@ -2,7 +2,7 @@
 
 This project aims to show all the notifications and deadlines in a graphical representation.
 
-<img title="a title" alt="Alt text" src="./mimelinebackground.png">
+<img title="a title" alt="screenshot" src="./mimelinebackground.png">
 
 ## Requirements:
 - Angular
